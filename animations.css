@@ -1,0 +1,158 @@
+/* Animaciones para el loader */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes loaderFade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes progressBar {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Animación para la tabla de rankings */
+@keyframes rankingEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación para los pasos */
+@keyframes stepHover {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+@keyframes iconRotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+/* Efecto máquina de escribir */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+/* Animación para modales */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Clases de animación */
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.rotate {
+    animation: rotate 1s linear infinite;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink 0.75s step-end infinite;
+}
+
+/* Animaciones específicas */
+.loading-screen {
+    transition: opacity 0.3s ease-out;
+}
+
+.loading-progress {
+    animation: progressBar 2s ease-out;
+}
+
+.step {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    animation: stepHover 0.3s ease forwards;
+}
+
+.step-icon {
+    transition: transform 0.3s ease;
+}
+
+.step:hover .step-icon {
+    animation: iconRotate 0.6s ease;
+}
+
+.rankings-table tr {
+    animation: rankingEnter 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.rankings-table tr:nth-child(1) { animation-delay: 0.1s; }
+.rankings-table tr:nth-child(2) { animation-delay: 0.2s; }
+.rankings-table tr:nth-child(3) { animation-delay: 0.3s; }
+.rankings-table tr:nth-child(4) { animation-delay: 0.4s; }
+.rankings-table tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Animaciones de botones y elementos interactivos */
+.vintage-button {
+    transition: all 0.3s ease;
+}
+
+.vintage-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.rotating {
+    animation: rotate 1s linear infinite;
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    animation: stepHover 0.3s ease forwards;
+}
+
+/* Animaciones responsivas */
+@media (max-width: 768px) {
+    .typewriter {
+        animation: fadeIn 1s ease-out;
+        white-space: normal;
+        border-right: none;
+    }
+}
