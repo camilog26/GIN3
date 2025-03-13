@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubriendo Nuestro Patrimonio - Gincana Intercolegial de Patrimonio Local">
+    <title>Descubriendo Nuestro Patrimonio - Gincana Intercolegial</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader mejorado -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="vintage-loader">
+            <div class="loader-inner">
+                <i class="fas fa-book-open fa-2x"></i>
+                <h2>Iniciando el Conocimiento</h2>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Header -->
+            <header class="main-header" data-aos="fade-down">
+                <div class="header-content">
+                    <h1>Descubriendo Nuestro Patrimonio</h1>
+                    <h2>Gincana Intercolegial de Conocimiento</h2>
+                    <p class="typewriter">Explora la historia y cultura de nuestra Ciudad Señora</p>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <!-- Sección de bienvenida -->
+                <section class="welcome-section section-card" data-aos="fade-up">
+                    <div class="welcome-content">
+                        <h2 class="section-title">¡Bienvenidos al Desafío!</h2>
+                        <p class="section-description">Pon a prueba tus conocimientos sobre Buga en este emocionante concurso intercolegial.</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Equipos</h3>
+                                <p>Forma tu equipo de 5 estudiantes y representa a tu colegio.</p>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="card-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <h3>Competencia</h3>
+                                <p>Compite contra otros colegios por el título de campeones.</p>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Premios</h3>
+                                <p>Gana reconocimientos especiales para tu institución.</p>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="card-icon">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <h3>Patrimonio</h3>
+                                <p>Descubre la riqueza cultural e histórica de nuestra ciudad.</p>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="card-icon">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <h3>Aprendizaje</h3>
+                                <p>Aprende mientras exploras la historia de Buga.</p>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                                <div class="card-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>Reconocimiento</h3>
+                                <p>Destaca entre las instituciones educativas de la región.</p>
+                            </div>
+                        </div>
+
+                        <!-- Botones centrados y alineados -->
+                        <div class="action-buttons">
+                            <div class="button-container">
+                                <button class="vintage-button primary" id="registerBtn">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Registrar Equipo</span>
+                                </button>
+                                <button class="vintage-button secondary" id="loginBtn">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>Ingresar al Juego</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tabla de rankings -->
+                <section class="rankings-section section-card" data-aos="fade-up">
+                    <h2 class="section-title">Tabla de Posiciones</h2>
+                    <div class="rankings-container">
+                        <div class="rankings-header">
+                            <h3>Top 5 Equipos</h3>
+                            <button id="refresh-rankings" class="vintage-button mini">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <div class="rankings-table-wrapper">
+                            <table class="rankings-table">
+                                <thead>
+                                    <tr>
+                                        <th>Posición</th>
+                                        <th>Equipo</th>
+                                        <th>Puntos</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rankings-list">
+                                    <!-- Se llena dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección de instrucciones -->
+                <section class="instructions-section section-card" data-aos="fade-up">
+                    <h2 class="section-title">¿Cómo Participar?</h2>
+                    <div class="steps-container">
+                        <div class="step" data-aos="fade-right">
+                            <div class="step-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Forma tu Equipo</h3>
+                            <p>Reúne 5 estudiantes de grados 10° y 11° de tu colegio.</p>
+                        </div>
+                        <div class="step" data-aos="fade-up">
+                            <div class="step-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Regístrate</h3>
+                            <p>Completa el registro con un profesor responsable.</p>
+                        </div>
+                        <div class="step" data-aos="fade-left">
+                            <div class="step-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Compite</h3>
+                            <p>Ingresa con tu llave de acceso y demuestra tu conocimiento.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="main-footer section-card">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Contacto</h3>
+                        <p><i class="fas fa-phone"></i> (2) 236-1234</p>
+                        <p><i class="fas fa-envelope"></i> info@gincana.edu.co</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Buga, Valle del Cauca</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Enlaces Rápidos</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Reglas del Juego</a></li>
+                            <li><a href="#">Preguntas Frecuentes</a></li>
+                            <li><a href="#">Soporte</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Síguenos</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link hover-effect">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link hover-effect">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link hover-effect">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Descubriendo Nuestro Patrimonio - Todos los derechos reservados</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal vintage-style">
+            <div class="modal-header">
+                <h3></h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <!-- Contenido dinámico del modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/animations.js"></script>
+	
+	<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script>
+	
+<script type="module">
+    import { db, auth } from './js/config/firebase-config.js';
+    import { teamService } from './js/services/team-service.js';
+    import { sessionService } from './js/services/session-service.js';
+    
+    // Hacer servicios disponibles globalmente
+    window.teamService = teamService;
+    window.sessionService = sessionService;
+</script>
+
+</body>
+</html>
